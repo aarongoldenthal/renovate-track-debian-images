@@ -1,6 +1,6 @@
 job2:
   image:
-    name: docker:20.10.21-alpine3.17
+    name: docker:23.0.6-alpine3.17
   script:
     - echo test 2
 

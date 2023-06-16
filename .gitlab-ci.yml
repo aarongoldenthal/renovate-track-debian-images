@@ -5,6 +5,9 @@ include:
     file:
       - '/jobs/Lint-Renovate.gitlab-ci.yml'
 
+lint_renovate:
+  stage: test
+
 job1:
   image: python:3.11.4-alpine3.17
   script:

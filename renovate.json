@@ -3,15 +3,18 @@
   "extends": ["config:base", "docker:enableMajor"],
   "ignorePresets": [":dependencyDashboard", ":prHourlyLimit2"],
   "docker": {
-    "packageRules": [
-      {
-        "description": "Override versioning to manage image tags with OS versions",
-        "matchPackageNames": ["docker", "python"],
-        "versioning": "regex:^(?<compatibility>\\d+\\.\\d+\\.\\d+-alpine)(?<major>\\d+)\\.(?<minor>\\d+)(?:\\.(?<patch>\\d+))?$"
-      }
-    ],
     "pinDigests": false
   },
+  "regexManagers": [
+    {
+      "description": "Override versioning to manage image tags with OS versions",
+      "fileMatch": ["\\.gitlab-ci\\.yml$", "Dockerfile"],
+      "matchStrings": [
+        "\\b(?<depName>[\\S]+):(?<compatibility>[\\S]*\\d+\\.\\d+\\.\\d+(?:[\\S]*)?-alpine)(?<major>\\d+)\\.(?<minor>\\d+)(?:\\.(?<patch>\\d+))?"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ],
   "labels": ["Dependencies"],
   "prHourlyLimit": 0,
   "timezone": "America/Chicago"

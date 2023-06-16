@@ -13,5 +13,6 @@
     "pinDigests": false
   },
   "labels": ["Dependencies"],
+  "prHourlyLimit": 0,
   "timezone": "America/Chicago"
 }

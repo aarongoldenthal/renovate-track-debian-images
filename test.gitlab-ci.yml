@@ -1,0 +1,10 @@
+job2:
+  image: docker:20.10.21-alpine3.17
+  script:
+    - echo test 2
+
+
+job3:
+  image: hadolint/hadolint:v2.12.0-alpine
+  script:
+    - echo test 3

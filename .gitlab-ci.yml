@@ -1,0 +1,7 @@
+include:
+  - local: test.gitlab-ci.yml
+
+job1:
+  image: python:3.11.3-alpine3.16
+  script:
+    - echo test 1

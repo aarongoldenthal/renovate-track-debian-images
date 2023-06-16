@@ -5,16 +5,17 @@
   "docker": {
     "packageRules": [
       {
-        "description": "Pin digests only if they begin with a numbered version",
-        "matchCurrentVersion": "/^v?[0-9.]+/",
-        "pinDigests": true
-      },
-      {
         "description": "Override versioning to manage image tags with OS versions",
         "matchPackageNames": ["docker", "python"],
         "versioning": "regex:^(?<compatibility>\\d+\\.\\d+\\.\\d+-alpine)(?<major>\\d+)\\.(?<minor>\\d+)(?:\\.(?<patch>\\d+))?$"
+      },
+      {
+        "description": "Add back default docker versioning",
+        "matchPackageNames": ["docker", "python"],
+        "versioning": "docker"
       }
-    ]
+    ],
+    "pinDigests": false
   },
   "labels": ["Dependencies"],
   "timezone": "America/Chicago"

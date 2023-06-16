@@ -1,6 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["config:base", "docker:enableMajor"],
+  "ignorePresets": [":dependencyDashboard", ":prHourlyLimit2"],
+  "docker": {
+    "packageRules": [
+      {
+        "description": "Pin digests only if they begin with a numbered version",
+        "matchCurrentVersion": "/^v?[0-9.]+/",
+        "pinDigests": true
+      },
+      {
+        "description": "Override versioning to manage image tags with OS versions",
+        "matchPackageNames": ["docker", "python"],
+        "versioning": "regex:^(?<compatibility>\\d+\\.\\d+\\.\\d+-alpine)(?<major>\\d+)\\.(?<minor>\\d+)(?:\\.(?<patch>\\d+))?$"
+      }
+    ]
+  },
+  "labels": ["Dependencies"],
+  "timezone": "America/Chicago"
 }

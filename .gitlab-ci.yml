@@ -9,6 +9,6 @@ lint_renovate:
   stage: test
 
 job1:
-  image: python:3.11.4-alpine3.17
+  image: python:3.11.3-alpine3.17
   script:
     - echo test 1

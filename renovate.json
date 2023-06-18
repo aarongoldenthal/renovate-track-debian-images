@@ -7,12 +7,21 @@
   },
   "regexManagers": [
     {
-      "description": "Override versioning to manage image tags with OS versions",
+      "description": "Override versioning to manage image tags with Alpine OS versions",
       "fileMatch": ["\\.gitlab-ci\\.yml$", "Dockerfile"],
       "matchStrings": [
         "(?:image:\\s+name:\\s*|image:\\s*|services:\\s+-\\s+|FROM\\s+)(?<depName>[\\S]+):(?<currentValue>[\\S]+)"
       ],
       "versioningTemplate": "regex:^(?<compatibility>[\\S]*\\d+\\.\\d+\\.\\d+(?:[\\S]*)?-alpine)(?<major>\\d+)\\.(?<minor>\\d+)(?:\\.(?<patch>\\d+))?$",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "description": "Override versioning to manage image tags with Debian/Ubuntu versions",
+      "fileMatch": ["\\.gitlab-ci\\.yml$", "Dockerfile"],
+      "matchStrings": [
+        "(?:image:\\s+name:\\s*|image:\\s*|services:\\s+-\\s+|FROM\\s+)(?<depName>[\\S]+):(?<currentValue>[\\S]+)"
+      ],
+      "versioningTemplate": "regex:^(?<compatibility>[\\S]*\\d+\\.\\d+\\.\\d+(?:[\\S]*)?-)(?<major>\\w+)$",
       "datasourceTemplate": "docker"
     }
   ],

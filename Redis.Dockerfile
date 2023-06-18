@@ -1,1 +1,1 @@
-FROM redis:7.0.11-bookworm
+FROM redis:7.0.11-bullseye

@@ -19,19 +19,21 @@
       "description": "Override versioning to manage image tags with Debian versions",
       "fileMatch": ["\\.gitlab-ci\\.yml$", "Dockerfile"],
       "matchStrings": [
-        "(?:image:\\s+name:\\s*|image:\\s*|services:\\s+-\\s+|FROM\\s+)(?<depName>[\\S]+):[\\w.-]+-(?<currentValue>[a-z]+)"
+        "(?:image:\\s+name:\\s*|image:\\s*|services:\\s+-\\s+|FROM\\s+)(?<depName>[\\S]+):(?<currentValue>[\\S]+)"
       ],
       "versioningTemplate": "debian",
-      "datasourceTemplate": "docker"
+      "datasourceTemplate": "docker",
+      "extractVersionTemplate": "^[\\w.-]+-(?<version>[a-z]+)$"
     },
     {
       "description": "Override versioning to manage image tags with Ubuntu versions",
       "fileMatch": ["\\.gitlab-ci\\.yml$", "Dockerfile"],
       "matchStrings": [
-        "(?:image:\\s+name:\\s*|image:\\s*|services:\\s+-\\s+|FROM\\s+)(?<depName>[\\S]+):[\\w.-]+-(?<currentValue>[a-z]+)\\b"
+        "(?:image:\\s+name:\\s*|image:\\s*|services:\\s+-\\s+|FROM\\s+)(?<depName>[\\S]+):(?<currentValue>[\\S]+)"
       ],
       "versioningTemplate": "ubuntu",
-      "datasourceTemplate": "docker"
+      "datasourceTemplate": "docker",
+      "extractVersionTemplate": "^[\\w.-]+-(?<version>[a-z]+)$"
     }
   ],
   "labels": ["Dependencies"],

@@ -12,3 +12,8 @@ job1:
   image: python:3.11.3-alpine3.17
   script:
     - echo test 1
+
+job4:
+  image: eclipse-temurin:17.0.7_7-jre-focal
+  script:
+    - echo test 4

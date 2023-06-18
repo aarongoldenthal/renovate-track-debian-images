@@ -14,6 +14,6 @@ job1:
     - echo test 1
 
 job4:
-  image: eclipse-temurin:17.0.7_7-jre-focal
+  image: eclipse-temurin:17.0.6_10-jre-focal
   script:
     - echo test 4

@@ -1,1 +1,1 @@
-FROM redis:7.0.10-bullseye
+FROM redis:7.0.11-bullseye

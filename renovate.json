@@ -7,31 +7,19 @@
   },
   "regexManagers": [
     {
-      "description": "Override versioning to manage image tags with Alpine OS versions",
-      "fileMatch": ["\\.gitlab-ci\\.yml$", "Dockerfile"],
-      "matchStrings": [
-        "(?:image:\\s+name:\\s*|image:\\s*|services:\\s+-\\s+|FROM\\s+)(?<depName>[\\S]+):(?<currentValue>[\\S]+)"
-      ],
+      "description": "Override versioning to manage image tags with Alpine OS versions - working",
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["FROM (?<depName>[\\S]+):(?<currentValue>[\\S]+)"],
       "versioningTemplate": "regex:^(?<compatibility>[\\S]*\\d+\\.\\d+\\.\\d+(?:[\\S]*)?-alpine)(?<major>\\d+)\\.(?<minor>\\d+)(?:\\.(?<patch>\\d+))?$",
       "datasourceTemplate": "docker"
     },
     {
       "description": "Override versioning to manage image tags with Debian versions",
-      "fileMatch": ["\\.gitlab-ci\\.yml$", "Dockerfile"],
+      "fileMatch": ["Dockerfile"],
       "matchStrings": [
-        "(?:image:\\s+name:\\s*|image:\\s*|services:\\s+-\\s+|FROM\\s+)(?<depName>[\\S]+):[\\w.-]+-(?<currentValue>[a-z]+)"        
+        "FROM (?<depName>[\\S]+):[\\w.-]+-(?<currentValue>[a-z]+)"
       ],
       "versioningTemplate": "debian",
-      "datasourceTemplate": "docker",
-      "extractVersionTemplate": "^[\\w.-]+-(?<version>[a-z]+)$"
-    },
-    {
-      "description": "Override versioning to manage image tags with Ubuntu versions",
-      "fileMatch": ["\\.gitlab-ci\\.yml$", "Dockerfile"],
-      "matchStrings": [
-        "(?:image:\\s+name:\\s*|image:\\s*|services:\\s+-\\s+|FROM\\s+)(?<depName>[\\S]+):[\\w.-]+-(?<currentValue>[a-z]+)"        
-      ],
-      "versioningTemplate": "ubuntu",
       "datasourceTemplate": "docker",
       "extractVersionTemplate": "^[\\w.-]+-(?<version>[a-z]+)$"
     }

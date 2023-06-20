@@ -1,3 +1,3 @@
-# Renovate Track Image OS
+# Renovate Track Debian-based Image Updates
 
-A test to illustrate how to use Renovate to track the OS in an image tag (e.g. `python:3.11.4-alpine3.18`).
+A test to illustrate how to use Renovate to manage Debian updates in a container image tag (e.g. `redis:7.0.11-bullseye`).

@@ -1,1 +1,1 @@
-FROM python:3.11.4-alpine3.17
+FROM redis:7.0.11-bullseye

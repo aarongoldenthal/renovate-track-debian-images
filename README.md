@@ -1,3 +1,3 @@
-# Renovate Track Debian-based Image Updates
+# Renovate Track Ubuntu-based Image Updates
 
-A test to illustrate how to use Renovate to manage Debian updates in a container image tag (e.g. `redis:7.0.11-bullseye`).
+A test to illustrate how to use Renovate to manage Ubuntu updates in a container image tag (e.g. `eclipse-temurin:17.0.7_7-jre-focal`).

@@ -7,12 +7,12 @@
   },
   "regexManagers": [
     {
-      "description": "Override versioning to manage image tags with Debian versions",
+      "description": "Override versioning to manage image tags with Ubuntu versions",
       "fileMatch": ["Dockerfile"],
       "matchStrings": [
         "FROM (?<depName>[\\S]+):(?<verCompatibility>[\\w.-]+-)(?<currentValue>[a-z]+)"
       ],
-      "versioningTemplate": "debian",
+      "versioningTemplate": "ubuntu",
       "datasourceTemplate": "docker",
       "extractVersionTemplate": "^{{verCompatibility}}(?<version>[a-z]+)$"
     }

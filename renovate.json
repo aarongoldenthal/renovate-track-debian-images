@@ -10,11 +10,11 @@
       "description": "Override versioning to manage image tags with Debian versions",
       "fileMatch": ["Dockerfile"],
       "matchStrings": [
-        "FROM (?<depName>[\\S]+):[\\w.-]+-(?<currentValue>[a-z]+)"
+        "FROM (?<depName>[\\S]+):(?<verCompatibility>[\\w.-]+-)(?<currentValue>[a-z]+)"
       ],
       "versioningTemplate": "debian",
       "datasourceTemplate": "docker",
-      "extractVersionTemplate": "^[\\w.-]+-(?<version>[a-z]+)$"
+      "extractVersionTemplate": "^{{verCompatibility}}(?<version>[a-z]+)$"
     }
   ],
   "prHourlyLimit": 0

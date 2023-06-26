@@ -1,0 +1,8 @@
+job5:
+  image: alpine:latest
+  script:
+    - echo test 5 - $NODE_IMAGE_TAG - $LATEST_IMAGE_TAG
+  parallel:
+    matrix:
+      - NODE_IMAGE_TAG: 16.20.1-buster-slim@sha256:c4d2069b31ca062f571114ab16015d5d146711eb8c23e231e31b5a89ad925f00
+      - NODE_IMAGE_TAG: 16.20.1-buster-slim

@@ -7,14 +7,15 @@
   },
   "regexManagers": [
     {
-      "description": "Override versioning to manage image tags with Ubuntu versions",
-      "fileMatch": ["Dockerfile"],
+      "description": "Manage Debian Slim based image tags from variables",
+      "depNameTemplate": "node",
+      "fileMatch": ["^.gitlab-ci.yml$"],
       "matchStrings": [
-        "FROM (?<depName>[\\S]+):(?<verCompatibility>[\\w.-]+-)(?<currentValue>[a-z]+)"
+        "- NODE_IMAGE_TAG: (?<verCompatibility>[0-9.]+-)(?<currentValue>[a-z]+)(?<verModifier>[a-z-]+)(@(?<currentDigest>sha256:[a-f0-9]+))?\\s"
       ],
-      "versioningTemplate": "ubuntu",
+      "versioningTemplate": "debian",
       "datasourceTemplate": "docker",
-      "extractVersionTemplate": "^{{verCompatibility}}(?<version>[a-z]+)$"
+      "extractVersionTemplate": "^{{verCompatibility}}(?<version>[a-z]+){{verModifier}}$"
     }
   ],
   "prHourlyLimit": 0

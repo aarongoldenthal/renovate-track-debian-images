@@ -4,4 +4,4 @@ job5:
     - echo test 5 - $NODE_IMAGE_TAG - $LATEST_IMAGE_TAG
   parallel:
     matrix:
-      - NODE_IMAGE_TAG: 16.20.1-buster-slim@sha256:c4d2069b31ca062f571114ab16015d5d146711eb8c23e231e31b5a89ad925f00
+      - NODE_IMAGE_TAG: 16.20.1-buster-slim@sha256:5a844a387310bf1c8871f8f3bd863771b4723b3e06c66fc08b34863850bbf6a9
